@@ -12,6 +12,14 @@ cartRouter.post("/",async(req,res)=>{
         return res.send(error)
     }
 })
+cartRouter.get("/",async(req,res)=>{
+    try {
+        let cart=await Cart.find({})
+        return res.status(200).send(cart)
+    } catch (error) {
+        return res.send(error)
+    }
+})
 
 cartRouter.put("/:id",async(req,res)=>{
     try {
