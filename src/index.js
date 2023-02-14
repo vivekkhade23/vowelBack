@@ -6,6 +6,7 @@ const cors=require('cors')
 const productRouter = require('./router/product.router')
 const Dbconnect = require('./config/Dbconnect')
 const orderRouter = require('./router/order.router')
+const cartRouter = require('./router/cart.router')
 
 let PORT =process.env.PORT || 8080
 dotenv.config()
@@ -19,6 +20,7 @@ app.use(express.json())
 app.get('/' , (req , res) => { return  res.send('Namshkar') })
 app.use("/product",productRouter)
 app.use("/order",orderRouter)
+app.use("/cart",cartRouter)
 
 app.listen(PORT,  () => { 
     Dbconnect()

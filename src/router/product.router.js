@@ -15,7 +15,7 @@ productRouter.get("/",async(req,res)=>{
 productRouter.post("/",async(req,res)=>{
   try{  
     const {title,price,image}=req.body;
-let pro=new Product({title:title,price:price,image:image})
+let pro=new Product({title:title,price:price,image:image,qty:1})
 pro =await pro.save();
  return   res.status(200).send({message:"New Item Created"})
 }
